@@ -23,18 +23,18 @@ pipeline {
                 script{
                     sh '''
                     echo 'Buid Docker Image'
-                    docker build -t talhaaziz37/deployment:${BUILD_NUMBER} .
+                    docker build -t talhaaziz37/Django_CICD:${BUILD_NUMBER} .
                     '''
                 }
             }
         }
 
-        stage('Push the artifacts'){
+        stage('Docker Push the artifacts'){
            steps{
                 script{
                     sh '''
                     echo 'Push to Repo'
-                    docker push abhishekf5/cicd-e2e:${BUILD_NUMBER}
+                    docker push talhaaziz37/Django_CICD:${BUILD_NUMBER}
                     '''
                 }
             }
