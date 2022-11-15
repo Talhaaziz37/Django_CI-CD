@@ -32,9 +32,10 @@ pipeline {
 
         stage('Docker Push the artifacts'){
            steps{
+            
                 script{
                     sh '''
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub'
+                    docker.withregistry 'Dockerhub'
                     echo 'Push to Repo'
                     docker push talhaaziz37/deployment:${BUILD_NUMBER}
                     docker push talhaaziz37/deployment:latest
