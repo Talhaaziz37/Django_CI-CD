@@ -9,14 +9,7 @@ pipeline {
     }
     
     stages {
-        stage('clean'){
-            steps{
-                script{
-
-                    cleanWS()
-                }
-            }
-        }
+        
         stage(' Git Checkout'){
            steps {
                 git branch: 'develop',
