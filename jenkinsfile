@@ -34,13 +34,13 @@ pipeline {
            steps{
             
                 script{
-                    docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub')
+                  docker.withRegistry('https://registry.hub.docker.com', 'Dockerhub'){                  
                     sh '''                   
                     echo 'Push to Repo'
                     docker push talhaaziz37/deployment:${BUILD_NUMBER}
                     docker push talhaaziz37/deployment:latest
 
-                    '''
+                    '''  }
                 }
             }
         }
