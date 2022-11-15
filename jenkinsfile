@@ -24,6 +24,7 @@ pipeline {
                     sh '''
                     echo 'Buid Docker Image'
                     docker build -t talhaaziz37/deployment:${BUILD_NUMBER} .
+                    docker build -t talhaaziz37/deployment:latest .
                     '''
                 }
             }
@@ -33,8 +34,11 @@ pipeline {
            steps{
                 script{
                     sh '''
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub'
                     echo 'Push to Repo'
                     docker push talhaaziz37/deployment:${BUILD_NUMBER}
+                    docker push talhaaziz37/deployment:latest
+
                     '''
                 }
             }
