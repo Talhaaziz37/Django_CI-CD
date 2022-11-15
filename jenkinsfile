@@ -4,10 +4,18 @@ pipeline {
     
     environment {
         IMAGE_TAG = "${BUILD_NUMBER}"
+        Dockerhub_user = "${talhaaziz37}"
+        
     }
     
     stages {
-        
+        stage('clean'){
+            steps{
+                script{
+                    cleanws()
+                }
+            }
+        }
         stage(' Git Checkout'){
            steps {
                 git credentialsId: 'f87a34a8-0e09-45e7-b9cf-6dc68feac670', 
